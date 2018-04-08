@@ -51,7 +51,7 @@ class SiteController extends BaseAPIController
     public function actionConnect()
     {
         try{
-            $client = new \swoole_client(SWOOLE_SOCK_TCP, SWOOLE_SOCK_ASYNC);
+            $client = new \swoole_client(SWOOLE_SOCK_TCP, SWOOLE_SOCK_TCP);
 
             $client->on("connect", function($cli) {
                 $cli->send("已经连接上了\n");
