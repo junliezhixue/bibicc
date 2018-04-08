@@ -25,9 +25,9 @@ class TaskController extends Controller
             'task_worker_num' => 2,
             'max_request' => 5000,
             'task_max_request' => 5000,
-            'open_eof_check' => true, //打开EOF检测
-            'package_eof' => "\r\n", //设置EOF
-            'open_eof_split' => true, // 自动分包
+            // 'open_eof_check' => true, //打开EOF检测
+            // 'package_eof' => "\r\n", //设置EOF
+            // 'open_eof_split' => true, // 自动分包
         ]);
         $this->_serv->on('Connect', [$this, 'onConnect']);
         $this->_serv->on('Receive', [$this, 'onReceive']);
