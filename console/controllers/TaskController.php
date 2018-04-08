@@ -29,7 +29,7 @@ class TaskController extends Controller
             'package_eof' => "\r\n", //设置EOF
             'open_eof_split' => true, // 自动分包
         ]);
-        // $this->_serv->on('Connect', [$this, 'onConnect']);
+        $this->_serv->on('Connect', [$this, 'onConnect']);
         $this->_serv->on('Receive', [$this, 'onReceive']);
         // $this->_serv->on('WorkerStart', [$this, 'onWorkerStart']);
         $this->_serv->on('Task', [$this, 'onTask']);
