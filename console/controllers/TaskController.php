@@ -126,8 +126,9 @@ class TaskController extends Controller
             echo "ER:" . mysqli_error($link);
             return;
         }
-        $data = $result->fetch_all(MYSQLI_ASSOC);
-        echo "OK:" . serialize($data) . "\n";
+        echo "OK:" . serialize($result) . "\n";
+        // $data = $result->fetch_all(MYSQLI_ASSOC);
+        // echo "OK:" . serialize($data) . "\n";
         // $this->_run->task($serv, $taskId, $fromId, $data);
     }
     public function onFinish($serv, $taskId, $data)
