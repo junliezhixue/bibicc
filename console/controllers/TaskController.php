@@ -100,6 +100,7 @@ class TaskController extends Controller
         //     $serv->task(array_merge($data , ['fd' => $fd]));
         // }
         for ($i = 0; $i < 10; $i++) {
+            $serv->send($fd, "成功发送任务");
             $result = $serv->task($i);
             echo $result . PHP_EOL;
         }
