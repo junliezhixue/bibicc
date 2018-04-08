@@ -109,30 +109,21 @@ class TaskController extends Controller
     {
         static $link = null;
         if ($link == null) {
-            $link = new \Swoole\MySQL([
-                'host'      => '127.0.0.1',
-                'user'      => 'root',
-                'password'  => 'mysql729082',
-                'database'  => 'test'
-            ]);
+            // $link = new \Swoole\MySQL([
+            //     'host'      => '127.0.0.1',
+            //     'user'      => 'root',
+            //     'password'  => 'mysql729082',
+            //     'database'  => 'test'
+            // ]);
+            $link = mysqli_connect("127.0.0.1", "root", "mysql729082", "test");
             if (!$link) {
                 $link = null;
                 return;
             }
         }
-        $result = $link->query("insert into users (name) value ($data-$taskId)", function($db, $r) {
-            if ($r === false)
-            {
-                var_dump($db->error, $db->errno);
-            }
-            elseif ($r === true )
-            {
-                var_dump($db->affected_rows, $db->insert_id);
-            }
-            var_dump($r);
-        });
-        // $data = $result->fetch_all(MYSQLI_ASSOC);
-        // echo "OK:" . serialize($data);
+        $result = $link->query("insert into users (name) value ($data-$taskId)");
+        $data = $result->fetch_all(MYSQLI_ASSOC);
+        echo "OK:" . serialize($data) . "\n";
         // $this->_run->task($serv, $taskId, $fromId, $data);
     }
     public function onFinish($serv, $taskId, $data)
