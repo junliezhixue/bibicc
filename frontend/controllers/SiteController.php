@@ -51,32 +51,11 @@ class SiteController extends BaseAPIController
     public function actionConnect()
     {
         try{
-            $client = new \swoole_client(SWOOLE_SOCK_TCP, SWOOLE_SOCK_TCP);
-
-            $client->on("connect", function($cli) {
-                $cli->send("已经连接上了\n");
-            });
-
-            $client->on("receive", function($cli, $data = ""){
-                if($data === '') {
-                    $cli->close();
-                    echo "closed\n";
-                } else {
-                    echo "接收到的数据: $data\n";
-                    sleep(1);
-                    $cli->send("已经收到了\n");
-                }
-            });
-
-            $client->on("error", function($cli){
-                exit("error\n");
-            });
-
+            $client = new \swoole_client(SWOOLE_SOCK_TCP);
             if ($clinet->connect('0.0.0.0', 9501)) {
-                var_dump($clinet->getsockname());
-                var_dump($clinet->isConnected());
-                var_dump($client->send('再次确认连接，哈哈哈'));
-
+                $client->send('再次确认连接，哈哈哈');
+                $data = $client->recv(700, 0) or die("recv failed\n");
+                echo "recv: " . $data . "\n";
             } else {
                 echo "connect failed.";
             }
