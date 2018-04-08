@@ -121,7 +121,7 @@ class TaskController extends Controller
                 return;
             }
         }
-        $result = $link->query("insert into users (name) value ($data-$taskId)");
+        $result = $link->query("insert into users (name) value (" . $data . "-" . $taskId . ")");
         if (!$result) {
             echo "ER:" . mysqli_error($link);
             return;
