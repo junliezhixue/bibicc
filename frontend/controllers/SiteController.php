@@ -52,7 +52,7 @@ class SiteController extends BaseAPIController
     {
         try{
             $client = new \swoole_client(SWOOLE_SOCK_TCP);
-            if ($clinet->connect('0.0.0.0', 9501)) {
+            if ($client->connect('0.0.0.0', 9501)) {
                 $client->send('再次确认连接，哈哈哈');
                 $data = $client->recv(700, 0) or die("recv failed\n");
                 echo "recv: " . $data . "\n";
