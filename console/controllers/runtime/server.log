@@ -1,0 +1,25 @@
+[2018-03-18 21:52:57 ^3051.2]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: Uncaught Exception: task exception :Expected response code 250 but got code "", with message "" in /usr/local/nginx/html/project/data/common/Taskrun.php:32
+Stack trace:
+#0 /usr/local/nginx/html/project/data/console/controllers/TaskController.php(59): common\Taskrun->task(Object(Swoole\Server), 0, 0, Array)
+#1 [internal function]: console\controllers\TaskController->onTask(Object(Swoole\Server), 0, 0, Array)
+#2 /usr/local/nginx/html/project/data/console/control
+[2018-03-18 21:52:57 $3049.0]	WARNING	swManager_check_exit_status: worker#2 abnormal exit, status=255, signal=0
+[2018-03-18 21:56:31 ^3052.3]	NOTICE	swFactoryProcess_finish (ERROR 1005): connection[fd=3] does not exists.
+[2018-03-18 21:56:33 ^3367.2]	NOTICE	swFactoryProcess_finish (ERROR 1005): connection[fd=4] does not exists.
+[2018-03-18 22:35:20 *3054.1]	WARNING	swSignalfd_onSignal: signal[1] callback is null.
+[2018-03-18 22:35:20 *3053.0]	WARNING	swSignalfd_onSignal: signal[1] callback is null.
+[2018-03-18 22:35:20 $3049.0]	WARNING	swSignal_callback: signal[1] callback is null.
+[2018-03-18 22:35:20 #3048.1]	WARNING	swSignalfd_onSignal: signal[1] callback is null.
+[2018-03-19 12:55:04 ^3052.3]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: Uncaught Exception: task exception :Expected response code 250 but got code "", with message "" in /usr/local/nginx/html/project/data/common/Taskrun.php:32
+Stack trace:
+#0 /usr/local/nginx/html/project/data/console/controllers/TaskController.php(59): common\Taskrun->task(Object(Swoole\Server), 3, 0, Array)
+#1 [internal function]: console\controllers\TaskController->onTask(Object(Swoole\Server), 3, 0, Array)
+#2 /usr/local/nginx/html/project/data/console/control
+[2018-03-19 12:55:04 $3049.0]	WARNING	swManager_check_exit_status: worker#3 abnormal exit, status=255, signal=0
+[2018-03-20 18:20:05 ^3367.2]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: Uncaught Exception: task exception :Expected response code 250 but got code "", with message "" in /usr/local/nginx/html/project/data/common/Taskrun.php:32
+Stack trace:
+#0 /usr/local/nginx/html/project/data/console/controllers/TaskController.php(59): common\Taskrun->task(Object(Swoole\Server), 4, 0, Array)
+#1 [internal function]: console\controllers\TaskController->onTask(Object(Swoole\Server), 4, 0, Array)
+#2 /usr/local/nginx/html/project/data/console/control
+[2018-03-20 18:20:05 $3049.0]	WARNING	swManager_check_exit_status: worker#2 abnormal exit, status=255, signal=0
+[2018-03-20 21:02:18 ^4696.3]	NOTICE	swFactoryProcess_finish (ERROR 1005): connection[fd=7] does not exists.
