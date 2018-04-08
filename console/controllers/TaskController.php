@@ -120,12 +120,19 @@ class TaskController extends Controller
                 return;
             }
         }
-        $result = $link->query("insert into users (name) value ($data-$taskId)");
-        if (!$result) {
-            return;
-        }
-        $data = $result->fetch_all(MYSQLI_ASSOC);
-        echo "OK:" . serialize($data);
+        $result = $link->query("insert into users (name) value ($data-$taskId)", function($db, $r) {
+            if ($r === false)
+            {
+                var_dump($db->error, $db->errno);
+            }
+            elseif ($r === true )
+            {
+                var_dump($db->affected_rows, $db->insert_id);
+            }
+            var_dump($r);
+        });
+        // $data = $result->fetch_all(MYSQLI_ASSOC);
+        // echo "OK:" . serialize($data);
         // $this->_run->task($serv, $taskId, $fromId, $data);
     }
     public function onFinish($serv, $taskId, $data)
